@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const app = express();
 dotenv.config();
@@ -16,3 +17,9 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
 // request parsers
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+// set view engine
+app.set('view engine', 'ejs');
+
+// set static folder
+app.use(express.static(path.join(__dirname, 'public')));
