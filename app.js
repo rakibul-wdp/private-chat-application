@@ -8,6 +8,8 @@ const cookieParser = require('cookie-parser');
 // internal imports
 const {notFoundHandler, errorHandler} = require('./middlewares/common/errorHandler');
 const loginRouter = require('./router/loginRouter');
+const usersRouter = require('./router/usersRouter');
+const inboxRouter= require('./router/inboxRouter');
 
 const app = express();
 dotenv.config();
