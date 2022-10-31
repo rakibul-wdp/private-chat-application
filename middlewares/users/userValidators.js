@@ -42,6 +42,11 @@ const addUserValidators = [
         throw createError(err.message);
       }
     }),
+  check('password')
+    .isStrongPassword()
+    .withMessage(
+      'Password must be at least 8 characters long & should contain at least 1 lowercase, 1 uppercase, 1 number & 1 symbol'
+    ),
 ];
 
 module.exports = {
