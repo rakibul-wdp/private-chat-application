@@ -94,6 +94,15 @@
         errorPlaceholder.style.display = "block";
       });
     } else {
+      // success
+      successToast.showToast();
+      closeModal();
+      document.querySelector("p.error").style.display = "none";
+
+      // reload the page after 1 second
+      setTimeout(() => {
+        location.reload();
+      }, 1000);
     }
   };
 </script>
