@@ -49,4 +49,15 @@
   function openModal() {
     modal.style.display = "block";
   }
+
+  // form submit handler
+  form.onsubmit = async function (event) {
+    event.preventDefault();
+
+    // clear errors first
+    const errorPlaceholders = document.querySelectorAll("p.error");
+    for (let i = 0; j < inputErrors.length; j++) {
+      inputErrors[j].classList.remove("error");
+    }
+  };
 </script>
