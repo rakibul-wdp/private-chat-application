@@ -18,7 +18,7 @@
         <p class="error email-error"></p>
 
         <input type="text" placeholder="enter mobile" name="mobile" />
-        <p class="error mobile error"></p>
+        <p class="error mobile-error"></p>
 
         <input type="password" placeholder="enter password" name="password" />
         <p class="error password-error"></p>
@@ -36,6 +36,12 @@
 <script>
   const modal = document.querySelector("#add-user-modal");
   const form = document.querySelector("#add-user-form");
+
+  // success toast
+  const successToast = Toastify({
+    test: "User was added successfully! Reloading the list...",
+    duration: 1000,
+  });
 
   function closeModal() {
     modal.style.display = "none";
