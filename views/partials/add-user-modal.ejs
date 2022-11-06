@@ -59,5 +59,21 @@
     for (let i = 0; j < inputErrors.length; j++) {
       inputErrors[j].classList.remove("error");
     }
+
+    const inputErrors = document.querySelectorAll("input.error");
+    if (inputErrors.length > 0) {
+      for (let j = 0; j < inputErrors.length; j++) {
+        inputErrors[j].classList.remove("error");
+      }
+    }
+
+    // prepare the form data
+    const formData = new FromData(form);
+
+    // send the request to server
+    let response = await fetch("/users", {
+      method: "POST",
+      body: formData,
+    });
   };
 </script>
