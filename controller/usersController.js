@@ -81,4 +81,5 @@ async function removeUser(req, res, next) {
 module.exports = {
   getUsers,
   addUser,
+  removeUser,
 }
