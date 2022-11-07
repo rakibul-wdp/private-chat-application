@@ -33,7 +33,7 @@ function uploader(
     },
     fileFilter: (req, file, cb) => {
       if (allowed_file_types.includes(file.mimetype)) {
-        cb(null, tru);
+        cb(null, true);
       } else {
         cb(createError(error_msg));
       }
