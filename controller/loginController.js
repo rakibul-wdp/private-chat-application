@@ -57,10 +57,20 @@ async function login(req, res, next) {
       throw createError('Login failed! Please try again');
     }
   } catch (err) {
-    
+    res.render('index', {
+      data: {
+        username: req.body.username,
+      },
+      errors: {
+        common: {
+          msg: err.message,
+        },
+      },
+    });
   }
 }
 
 module.exports = {
-  getLogin
+  getLogin,
+  login,
 }
