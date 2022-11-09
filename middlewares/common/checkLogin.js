@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const checkLogin = (req, res, next) => {
-  let cookies = Object.keys(req,signedCookies).length > 0 ? req.signedCookies : null;
+  let cookies = Object.keys(req.signedCookies).length > 0 ? req.signedCookies : null;
 
   if (cookies) {
     try {
@@ -10,7 +10,7 @@ const checkLogin = (req, res, next) => {
       req.user = decoded;
 
       // pass user info to response locals
-      if (res.locals,html) {
+      if (res.locals.html) {
         res.locals.loggedInUser = decoded;
       }
       next();
