@@ -1,4 +1,4 @@
-const {check} = require('express-validator');
+const {check, validationResult} = require('express-validator');
 
 const doLoginValidators = [
   check('username')
