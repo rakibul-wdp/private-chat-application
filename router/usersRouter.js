@@ -15,7 +15,7 @@ const router = express.Router();
 router.get('/', decorateHtmlResponse('Users'), checkLogin, getUsers);
 
 // add user
-router.post('/', avatarUpload, addUserValidators, addUserValidationHandler, addUser);
+router.post('/', checkLogin, avatarUpload, addUserValidators, addUserValidationHandler, addUser);
 
 // remove user
 router.delete('/:id', removeUser);
