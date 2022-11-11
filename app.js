@@ -1,18 +1,30 @@
 // external imports
 const express = require('express');
+const http = require('http');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const moment = require('moment');
 
 // internal imports
-const {notFoundHandler, errorHandler} = require('./middlewares/common/errorHandler');
 const loginRouter = require('./router/loginRouter');
 const usersRouter = require('./router/usersRouter');
 const inboxRouter= require('./router/inboxRouter');
 
+// internal imports
+const {notFoundHandler, errorHandler} = require('./middlewares/common/errorHandler');
+
 const app = express();
+const server = http.createServer(app);
 dotenv.config();
+
+// socket creation
+const io = require('socket.io')(server);
+global.io = io;
+
+// set moment as app locals
+app.locals.moment = moment;
 
 // database connection
 mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
